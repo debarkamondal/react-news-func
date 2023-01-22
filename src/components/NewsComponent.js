@@ -26,17 +26,20 @@ const NewsComponent = (props) => {
     props.setProgress(100);
   }
 
-  useEffect(() => {updateNews()}, [page])
+  useEffect(() => {
+    updateNews()
+    //eslint-disable-next-line
+  }, [page])
 
 
   const fetchMoreData = async () => {
-    setPage(page+1);
+    setPage(page + 1);
     updateNews();
   }
   return (
     <>
 
-      <h1 className='text-center' style={{marginTop: '5rem'}}>Top {props.category} headlines</h1>
+      <h1 className='text-center' style={{ marginTop: '5rem' }}>Top {props.category} headlines</h1>
       {loading && <Spinner />}
       <InfiniteScroll
         dataLength={articles.length}
