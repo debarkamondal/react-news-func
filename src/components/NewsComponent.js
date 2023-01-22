@@ -10,8 +10,7 @@ const NewsComponent = (props) => {
   const [page, setPage] = useState(1)
   const [totalResults, setTotalResults] = useState(0)
 
-  // document.title = `NewsDezire | ${props.category.charAt(0).toUpperCase() + props.category.substr(1)}`;
-
+  
   const updateNews = async () => {
     props.setProgress(0);
     const url = `https://newsapi.org/v2/top-headlines?language=en&category=${props.category}&pageSize=${props.pageSize}&page=${page}&apiKey=${props.apiKey}`;
@@ -25,8 +24,9 @@ const NewsComponent = (props) => {
     setLoading(false);
     props.setProgress(100);
   }
-
+  
   useEffect(() => {
+    document.title = `NewsDezire | ${props.category.charAt(0).toUpperCase() + props.category.substr(1)}`;
     updateNews()
     //eslint-disable-next-line
   }, [page])
