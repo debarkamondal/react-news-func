@@ -34,7 +34,6 @@ const NewsComponent = (props) => {
 
   const fetchMoreData = async () => {
     setPage(page + 1);
-    updateNews();
   }
   return (
     <>
